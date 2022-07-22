@@ -5,6 +5,8 @@ from uuid import UUID
 
 @dataclass
 class SalesRecord:
+    """A widget sales record."""
+
     id: UUID
     category: str
     widget_id: UUID

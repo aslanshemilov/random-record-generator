@@ -2,6 +2,12 @@ from generator.services.sales_record_csv_service import SalesRecordCsvService
 
 
 class GenerateController:
+    """CLI Controller for generating random sale records to CSV.
+
+    Attributes:
+        _csv_service: Service to write random sales records to CSV.
+    """
+
     _csv_service: SalesRecordCsvService
 
     def __init__(self, csv_service: SalesRecordCsvService) -> None:

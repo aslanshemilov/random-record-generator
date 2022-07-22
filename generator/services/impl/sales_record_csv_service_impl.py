@@ -7,6 +7,12 @@ from generator.services.sales_record_generator import SalesRecordGenerator
 
 
 class SalesRecordCsvServiceImpl(SalesRecordCsvService):
+    """Writes random sales records to CSV using Python core csv.
+
+    Attributes:
+        _sales_record_generator:  The sales record genenerator used to generate records.
+        _sales_record_serializer: The sales record serializer to write to CSV.
+    """
 
     _sales_record_generator: SalesRecordGenerator
     _sales_record_serializer: SalesRecordCsvSerializer

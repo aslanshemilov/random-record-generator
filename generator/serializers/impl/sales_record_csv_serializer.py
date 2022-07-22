@@ -3,6 +3,8 @@ from generator.serializers.csv_serializer import CsvSerializer
 
 
 class SalesRecordCsvSerializer(CsvSerializer):
+    """Serialized a sales record to a CSV-compatiable format."""
+
     def headers(self) -> List[str]:
         return ["id", "category", "widget_id", "customer_name", "price", "created"]
 

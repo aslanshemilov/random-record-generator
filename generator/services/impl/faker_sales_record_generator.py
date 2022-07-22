@@ -8,6 +8,13 @@ from generator.services.sales_record_generator import SalesRecordGenerator
 
 
 class FakerSalesRecordGenerator(SalesRecordGenerator):
+    """Generated ranom sales records using Faker.
+
+    Attributes:
+    _faker:       The Faker instance.
+    _categories:  The list of categories in which to generate records.
+    """
+
     _faker: Faker
     _categories: List[str]
 
@@ -25,9 +32,13 @@ class FakerSalesRecordGenerator(SalesRecordGenerator):
             category=choice(self._categories),  # nosec
             widget_id=self._generate_uuid(),
             customer_name=self._faker.name(),
-            price=self._faker.pyfloat(positive=True),
+            price=self._generate_random_float(),
             created=self._faker.date_time(),
         )
+
+    def _generate_random_float(self) -> float:
+        return round(self._faker.pyfloat(positive=True), 2)
+
 
     def _generate_uuid(self) -> UUID:
         return uuid.uuid4()
